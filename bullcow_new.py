@@ -300,19 +300,6 @@ def game(answer):
                         
                         
     
-    # for i in place_matrix:
-        #print(i)
-    
-    # for i in range(len(guess_set)):
-    #     for j in range(i, len(guess_set)):
-    #         if digit_set[i][1] != 0 and digit_set[i][1] == digit_set[j][1]:
-    #             for num in range(4):
-    #                 if guess_set[i][num] in answer and guess_set[i][k] == guess_set[j][num]:
-    #                     pos = answer.index(guess_set[i][num])
-    #                     for k in range(4):
-    #                         if k != pos:
-    #                             place_matrix[k][num]= False
-    #                     place_matrix[pos][num] = True
                         
                         
         
@@ -370,12 +357,19 @@ def game(answer):
                 
         #print("list of valid combinations")
         valid_combinations.pop(0)
-        for v in valid_combinations:
-            print(v)
+        # for v in valid_combinations:
+        #     print(v)
             
         #print("temp is ", temp)
         #print("-----------------")
-        final_answer = list(valid_combinations.pop(0))
+        
+        final_answer = ''
+        for i in list(valid_combinations.pop(0)):
+            final_answer += str(i)
+            
+        final_answer = int(final_answer)
+
+            
         while True :
             #print("----------------------")
             print("MY GUESS IS: ")
@@ -434,8 +428,10 @@ def game(answer):
                         if answer[corr_pos] in temp:    
                             temp.remove(answer[corr_pos])
                         
-                       
-            final_answer = list(valid_combinations.pop(0))
+            final_answer = ''
+            for i in list(valid_combinations.pop(0)):
+                final_answer += str(i)
+            final_answer = int(final_answer)
             if len(temp) == 0:
                 print("----------------I WON-----------------------")
                 return
